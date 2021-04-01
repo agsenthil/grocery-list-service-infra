@@ -2,23 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: ui
+    app: grocery-list-service
     version: v1
-  name: ui
+  name: grocery-list-service
 spec:
   selector:
     matchLabels:
-      app: ui
+      app: grocery-list-service
       version: v1
   template:
     metadata:
       labels:
-        app: ui
+        app: grocery-list-service
         version: v1
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/tekton-argocd/app:16fc615
+      - image: image-registry.openshift-image-registry.svc:5000/tekton-argocd-sen/app:16fc615
         imagePullPolicy: Always
-        name: ui
+        name: grocery-list-service
         ports:
-        - containerPort: 3000
+        - containerPort: 8080
